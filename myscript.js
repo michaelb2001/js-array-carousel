@@ -38,13 +38,55 @@ document.getElementById("principale").innerHTML = contenutiP;
 
 let contenutiL="";
 for(let i=0 ; i<items.length; i++){
-    contenutiL += 
-    `<img src="${items[i]}" id="item-${i}">`;
+
+    if(i==1){
+        contenutiL += 
+        `<img src="${items[i]}" id="item-${i}" class="active">`;
+    }else{
+        contenutiL += 
+        `<img src="${items[i]}" id="item-${i}">`;
+    }
 }
 
 document.getElementById("laterale").innerHTML = 
 `<div id="prev">&uarr;</div>
  <div id="next">&darr;</div>${contenutiL}`;
 
+counter =1;
 
+const prev = document.getElementById("prev");
+const next = document.getElementById("next");
+
+prev.addEventListener('click',function(){
+    document.getElementById("item-"+counter).classList.remove("active");
+
+    if(counter==0){
+        prev.classList.add("hidden");
+    } else{
+        counter--;
+        document.getElementById("item-"+counter).classList.remove("hidden");
+        document.getElementById("item-"+counter).classList.add("active");
+
+        document.getElementById("item-p-"+counter).classList.remove("hidden");
+        document.getElementById("item-p-"+counter).classList.add("active");
+    }
+
+});
+
+next.addEventListener('click',function(){
+    document.getElementById("item-"+counter).classList.remove("active");
+    prev.classList.add("active");
+    if(counter==(items.length-1)){
+        next.classList.add("hidden");
+    } else{
+        prev.classList.add("active");
+        counter++;
+        document.getElementById("item-"+counter).classList.remove("hidden");
+        document.getElementById("item-"+counter).classList.add("active");
+    
+        document.getElementById("item-p-"+counter).classList.remove("hidden");
+        document.getElementById("item-p-"+counter).classList.add("active");
+    }
  
+});
+
