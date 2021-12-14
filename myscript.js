@@ -26,10 +26,10 @@ let contenutiP="";
 for(let i=0 ; i<items.length; i++){
     if(i==1){
         contenutiP += 
-        `<img src="${items[i]}" id="item-p-${i}>`;
+        `<img src="${items[i]}" id="item-p-${i}">`;
     }else{
         contenutiP += 
-        `<img src="${items[i]}" id="item-p-${i}> class="hidden">`;
+        `<img src="${items[i]}" id="item-p-${i}" class="hidden">`;
     }
 }
 
@@ -47,3 +47,4 @@ document.getElementById("laterale").innerHTML =
  <div id="next">&darr;</div>${contenutiL}`;
 
 
+ 
