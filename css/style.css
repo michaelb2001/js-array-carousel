@@ -9,6 +9,13 @@
     height: 80vh;
 }
 
+#principale{
+    width: 79%;
+}
+#laterale{
+    width: 20%;
+}
+
 img{
     width: 100%;
     height: 100%;
@@ -41,7 +48,12 @@ img{
     bottom: 20px;
 }
 
-.active
+.active{
+    display:block;
+}
+.hidden{
+    display: none;
+}
 .laterale>img.active{
     opacity: 100%;
     border: 5px solid white;
