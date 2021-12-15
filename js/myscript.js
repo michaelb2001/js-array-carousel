@@ -74,10 +74,18 @@ const next = document.getElementById("next");
 
 prev.addEventListener('click',function(){
     document.getElementById("item-"+counter).classList.remove("active");
-
-    if(counter==0){
-        prev.classList.add("hidden");
-    } else{
+    counter--;
+    if(counter==-1){
+        counter++;
+        document.getElementById("item-p-"+counter).classList.remove("active");
+        document.getElementById("item-p-"+counter).classList.add("hidden");
+        counter=items.length-1;
+        document.getElementById("item-"+counter).classList.remove("hidden");
+        document.getElementById("item-"+counter).classList.add("active");
+        document.getElementById("item-p-"+counter).classList.remove("hidden");
+        document.getElementById("item-p-"+counter).classList.add("active"); 
+    }else{
+        counter++;
         document.getElementById("item-p-"+counter).classList.remove("active");
         document.getElementById("item-p-"+counter).classList.add("hidden");
         counter--;
@@ -91,11 +99,18 @@ prev.addEventListener('click',function(){
 
 next.addEventListener('click',function(){
     document.getElementById("item-"+counter).classList.remove("active");
-    prev.classList.add("active");
-    if(counter==(items.length-1)){
-        next.classList.add("hidden");
-    } else{
-        prev.classList.add("active");
+    counter++;
+    if(counter == items.length){
+        counter--;
+        document.getElementById("item-p-"+counter).classList.remove("active");
+        document.getElementById("item-p-"+counter).classList.add("hidden");
+        counter=0;
+        document.getElementById("item-"+counter).classList.remove("hidden");
+        document.getElementById("item-"+counter).classList.add("active");
+        document.getElementById("item-p-"+counter).classList.remove("hidden");
+        document.getElementById("item-p-"+counter).classList.add("active");
+    }else{
+        counter--;
         document.getElementById("item-p-"+counter).classList.remove("active");
         document.getElementById("item-p-"+counter).classList.add("hidden");
         counter++;
@@ -103,8 +118,6 @@ next.addEventListener('click',function(){
         document.getElementById("item-"+counter).classList.add("active");
         document.getElementById("item-p-"+counter).classList.remove("hidden");
         document.getElementById("item-p-"+counter).classList.add("active");
- 
     }
  
 });
-
