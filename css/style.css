@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 .container-fluid{
     position: absolute;
     top: 50%;
@@ -11,6 +15,10 @@
 
 #principale{
     width: 79%;
+}
+
+#principale>div{
+    height: 100%;
 }
 #laterale{
     width: 20%;
@@ -48,14 +56,35 @@ img{
     bottom: 20px;
 }
 
-.active{
-    display:block;
-}
-.hidden{
-    display: none;
-}
 .laterale>img.active{
     opacity: 100%;
     padding: 2px;
     border: 3px solid black;
+}
+
+.principale>div{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: end;
+    
+}
+
+.principale>div>.testo{
+    position: absolute;
+    text-align: end;
+    bottom:30px;
+    color: white;
+    padding: 5px;
+}
+
+.active{
+    display:block!important;
+    display: flex!important;
+}
+
+.principale>div.hidden{
+    display: none;
 }

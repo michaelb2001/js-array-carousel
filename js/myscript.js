@@ -1,3 +1,4 @@
+//definisco gli array;
 const items = [
     'img/01.jpg',
     'img/02.jpg',
@@ -25,11 +26,25 @@ const text = [
 let contenutiP="";
 for(let i=0 ; i<items.length; i++){
     if(i==1){
-        contenutiP += 
-        `<img src="${items[i]}" id="item-p-${i}">`;
+        contenutiP +=
+        `<div id="item-p-${i}" class="active">
+            <img src="${items[i]}">
+            <div class="testo">
+                <h2 id="titolo-${i}">${title[i]}</h2>
+                <p id="minitext-${i}">${text[i]}</p>
+            </div>
+        </div>
+        `;
     }else{
         contenutiP += 
-        `<img src="${items[i]}" id="item-p-${i}" class="hidden">`;
+        `<div id="item-p-${i}" class="hidden">
+            <img src="${items[i]}" id="item-p-${i}" >
+            <div class="testo">
+                <h2 id="titolo-${i}">${title[i]}</h2>
+                <p id="minitext-${i}">${text[i]}</p>
+            </div>
+        </div>
+        `;
     }
 }
 
